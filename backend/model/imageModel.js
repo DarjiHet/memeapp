@@ -18,6 +18,10 @@ const imageSchema = new mongoose.Schema({
         ref: "User",
         required:true,
     },
+    likes:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+    }],
     uploadedAt:{
         type: Date,
         default: Date.now(),
