@@ -6,8 +6,15 @@ const adminRoute = require('../backend/routes/adminRoute');
 const dbConnect = require('../backend/config/dbConnect');
 const limiter = require('../backend/middleware/rateLimit')
 const cookieParser = require('cookie-parser')
+const cors = require('cors');
 dotenv.config()
 const app = express()
+
+
+app.use(cors({
+  origin: 'http://localhost:5000', // allow frontend
+  credentials: true,               // allow cookies/sessions
+}));
 
 
 // db connection

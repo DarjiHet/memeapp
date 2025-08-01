@@ -2,13 +2,42 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FiEye, FiEyeOff } from "react-icons/fi";
+import { useDispatch} from 'react-redux'
+import { loginUser } from "../Action/userAction";
+import { toast } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
+import { useSelector } from "react-redux"
 
 const Login = () => {
+  const user = useSelector((store) => store.user)
+  const navigate = useNavigate();
+  const dispatch = useDispatch()
   const [showPassword, setShowPassword] = useState(false);
+  const [form, setForm] = useState({
+    email: '',
+    password: '',
+  })
+  {
+    user && navigate('/images')
+  }
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
   const togglePassword = () => {
     setShowPassword((prev) => !prev);
   };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await dispatch(loginUser(form.email, form.password, navigate));
+      toast.success("Login successful!");
+    } catch (err) {
+      toast.error(err.response?.data?.message || "login failed");
+    }
+  };
+
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#bde0fe] px-4">
@@ -16,7 +45,7 @@ const Login = () => {
         <h2 className="text-3xl font-bold text-center text-[#a2d2ff] mb-6">
           Welcome Back
         </h2>
-        <form className="space-y-4">
+        <form className="space-y-4" onSubmit={handleSubmit}>
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
               Email
@@ -25,6 +54,7 @@ const Login = () => {
               type="email"
               placeholder="you@example.com"
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a2d2ff]"
+              name="email" value={form.email} onChange={handleChange}
             />
           </div>
           <div>
@@ -36,6 +66,7 @@ const Login = () => {
                 type={showPassword ? "text" : "password"}
                 placeholder="••••••••"
                 className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a2d2ff]"
+                name="password" value={form.password} onChange={handleChange}
               />
               <span
                 onClick={togglePassword}

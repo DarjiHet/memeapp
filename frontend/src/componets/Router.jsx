@@ -1,31 +1,49 @@
-import React from 'react'
-import {createBrowserRouter} from 'react-router-dom'
-import {RouterProvider} from 'react-router-dom'
-import Navbar from './Navbar'
-import Register from './Register'
-import Login from './Login'
+// src/componets/Router.jsx
+import React from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Register from './Register';
+import Login from './Login';
+import Layout from './Layout'; // we’ll create this next
+import Landing from './Landing';
+import Images from './Images';
+import Profile from './Profile';
+import AdminDas from './AdminDas';
 
-const Router = () => {
-  const appRouter = createBrowserRouter([
-    {
+const appRouter = createBrowserRouter([
+  {
+    path: '/',
+    element: <Layout />,
+    children: [
+      {
         path: '/',
-        element: <Navbar/>,
-    },
-    {
+        element: <Landing />,
+      },
+      {
         path: '/register',
         element: <Register />,
-    },
-    {
+      },
+      {
         path: '/login',
         element: <Login />,
-    },
-  ])
+      },
+      {
+        path: '/images',
+        element: <Images />,
+      },
+      {
+        path: '/profile',
+        element: <Profile />,
+      },
+      {
+        path: '/admindas',
+        element: <AdminDas />,
+      },
+    ],
+  },
+]);
 
-    return (
-        <div>
-            <RouterProvider router={appRouter}/>
-        </div>
-  )
-}
+const Router = () => {
+  return <RouterProvider router={appRouter} />;
+};
 
 export default Router;

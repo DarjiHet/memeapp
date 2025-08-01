@@ -11,7 +11,7 @@ exports.createUser = async (req, res) => {
       });
     }
     if (password.length < 6) {
-      return res.json({
+      return res.status(400).json({
         message: "password must be at least 6 digit",
       });
     }
@@ -33,6 +33,7 @@ exports.createUser = async (req, res) => {
     funcToken(user._id, res);
     return res.status(200).json({
       message: "user created",
+      user
     });
   } catch (error) {
     res.status(500).json({
@@ -67,8 +68,9 @@ exports.loginUser = async (req, res) => {
     }
 
     funcToken(user._id, res);
-    return res.status(400).json({
+    return res.status(200).json({
       message: "logedin",
+      user
     });
   } catch (error) {
     res.status(500).json({
@@ -77,6 +79,27 @@ exports.loginUser = async (req, res) => {
     });
   }
 };
+
+
+exports.loadUser = async (req, res) => {
+  try {
+      const userId = req.user.id
+      const user = await User.findById(userId)
+
+      return res.status(200).json({
+        message: 'user get',
+        user
+      })
+  } catch (error) {
+    return res.status(500).json({
+      message: "internal server error",
+      error: error.message
+    });
+  }
+};
+
+
+
 
 exports.logoutUser = async (req, res) => {
 
@@ -95,3 +118,4 @@ exports.logoutUser = async (req, res) => {
     });
   }
 };
+ 
