@@ -1,47 +1,49 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { getImages }  from '../Action/imageAction'
-import ImageCard from './ImageCard';
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getImages } from "../Action/imageAction";
+import ImageCard from "./ImageCard";
+import ImageSearch from "./ImageSearch";
+import { useState } from "react";
+import { FaTrashAlt } from "react-icons/fa";
+
 
 const Images = () => {
   const dispatch = useDispatch(); // ✅ Get dispatch function
-  const images = useSelector((store) => store.image)
+  const images = useSelector((store) => store.image);
+  const user = useSelector((store) => store.user);
+  const [admin, setAdmin] = useState(false)
   useEffect(() => {
-    if(images === null){
-      dispatch(getImages()); 
-    }
-  }, [images])
+    dispatch(getImages());
+  }, []);
 
-  
-  // return (
-  //   <>
-  //     <div className="flex p-2 m-auto flex-wrap w-[80%] bg-amber-950 mt-10 mb-10 flex-row">
-  //     {images &&
-  //       images.map((image) => (
-  //         <div className="">
-  //           <ImageCard  image={image} key={image._id}/> 
-  //         </div>
-  //       ))}
-  //     </div>
-  //   </>
-  // )
+
+
+  // ------------
+//   useEffect(() => {
+//   if (!images || !user) return;
+//   if (user.role === "admin") {
+//     setAdmin(true);
+//   }
+// }, [images, user]);
+
+
 
   return (
-  <div className="min-h-screen bg-gray-100 py-10 px-4">
-    <div className="flex flex-wrap gap-6 justify-center w-[90%] mx-auto">
-      {images &&
-        images.map((image) => (
-          <div
-            key={image._id}
-            className="border-0 rounded-lg"
-          >
-            <ImageCard image={image} />
-          </div>
-        ))}
+    <div className="min-h-screen bg-gray-100 py-10 px-4">
+      <ImageSearch />
+      <div className="flex flex-wrap gap-6 justify-center w-[90%] mx-auto">
+        {images &&
+          images.map((image) => (
+            <div
+              key={image._id}
+              className="border-0 rounded-lg"
+            >
+              <ImageCard image={image} />
+            </div>
+          ))}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
-}
-
-export default Images
+export default Images;

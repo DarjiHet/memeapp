@@ -7,10 +7,13 @@ const imageSlice = createSlice({
     reducers: {
         loadImages: (state, action) => {
             return action.payload
+        },
+        searchImage: (state, action) => {
+            return action.payload
         }
     }
 })
 
 
-export const { loadImages } = imageSlice.actions;
+export const { loadImages, searchImage } = imageSlice.actions;
 export default imageSlice.reducer;

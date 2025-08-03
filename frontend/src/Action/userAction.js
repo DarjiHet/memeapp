@@ -1,5 +1,5 @@
 import axios from "axios";
-import { addUser, setUser } from "../utils/userSlice";
+import { addUser, setUser, removeUser } from "../utils/userSlice";
 
 const baseUrl = "http://localhost:3000/api/v1/";
 
@@ -56,3 +56,16 @@ export const loadUser = () => {
     }
   };
 };
+
+export const logOut = () => {
+  return async (dispatch) => {
+    try {
+      const res = await axios.get(`${baseUrl}logOut`, {
+        withCredentials: true,
+      });
+      dispatch(removeUser(res));
+    } catch (error) {
+      console.log('user not logged out')
+    }
+  }
+}

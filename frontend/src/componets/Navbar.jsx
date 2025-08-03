@@ -5,6 +5,8 @@ import { IoLogIn } from "react-icons/io5";
 import { useSelector } from "react-redux"
 import { CgProfile } from "react-icons/cg";
 import { MdSpaceDashboard } from "react-icons/md";
+import { IoImagesOutline } from "react-icons/io5";
+
 
 const Navbar = () => {
 
@@ -47,6 +49,13 @@ const Navbar = () => {
               <MdSpaceDashboard className='text-3xl'/>
             </Link>
             }
+            
+            <Link
+              to="/images"
+              className="text-white font-semibold hover:text-[#ffafcc] transition"
+            >
+              <IoImagesOutline className='text-3xl'/>
+            </Link>
 
           </div>
         </div>

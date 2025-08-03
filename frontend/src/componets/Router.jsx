@@ -8,6 +8,7 @@ import Landing from './Landing';
 import Images from './Images';
 import Profile from './Profile';
 import AdminDas from './AdminDas';
+import ImageDetail from './ImageDetail';
 
 const appRouter = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const appRouter = createBrowserRouter([
       {
         path: '/images',
         element: <Images />,
+      },
+      {
+        path: '/image/:id',
+        element: <ImageDetail />,
       },
       {
         path: '/profile',

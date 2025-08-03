@@ -4,7 +4,6 @@ const cloudinary = require("../config/cloudinary");
 exports.uploadImage = async (req, res) => {
   try {
     const user = req.user.id;
-
     const { name } = req.body;
 
     if (!name) {
@@ -196,7 +195,10 @@ exports.downloadImage = async (req, res) => {
     }
 
     // Redirect to Cloudinary image URL
-    return res.redirect(image.url);
+    // return res.redirect(image.url);
+    return res.status(200).json({
+      image
+    })
   } catch (error) {
     return res.status(500).json({
       message: "Internal server error",
