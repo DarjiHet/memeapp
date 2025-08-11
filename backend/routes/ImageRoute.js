@@ -9,6 +9,6 @@ router.route('/allimages').get(getAllImages)
 router.route('/uploadimage').post(authMiddleware, multer, uploadImage)
 router.route('/getimages').get(authMiddleware, imagesByUser)
 router.route('/image/:id').delete(authMiddleware, deleteImageOfUser).post(authMiddleware, imageLike).get(authMiddleware, downloadImage)
-router.route('/searchimage').post(authMiddleware, searchImage)
+router.route('/searchimage').post(searchImage)
 
 module.exports = router;
