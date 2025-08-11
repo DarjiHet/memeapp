@@ -23,10 +23,10 @@ const Landing = () => {
       <section className="flex flex-col-reverse md:flex-row items-center justify-between max-w-7xl mx-auto p-6 py-12">
         <div className="md:w-1/2 space-y-6">
           <h1 className="text-4xl md:text-5xl font-bold text-[#a2d2ff] leading-tight">
-            Welcome to MemeZone
+            Welcome to Pixee
           </h1>
           <p className="text-lg">
-            Discover and share the funniest memes on the internet. Powered by
+            Discover and share the funniest memes and images on the internet. Powered by
             modern design and good vibes.
           </p>
           {/* <button className="bg-[#ffafcc] hover:bg-[#ffa3c2] text-white px-6 py-3 rounded-lg font-semibold transition cursor-pointer"> */}
@@ -47,7 +47,7 @@ const Landing = () => {
       {/* Image Grid Section */}
       <section className="max-w-7xl mx-auto px-6 pb-16">
         <h2 className="text-3xl font-bold text-center text-[#a2d2ff] mb-8">
-          Explore Trending Memes
+          Explore Trending
         </h2>
       <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
         {images.map((img, i) => (

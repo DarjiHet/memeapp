@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Logo / Brand */}
         <div>
-          <img src="/logo.png" alt="logo" className="w-30 h-15 object-cover rounded-4xl"/>
+          <img src="/logo.png" alt="logo" className="w-30 h-15 object-cover rounded-4xl transition duration-300 cursor-pointer hover:scale-120"/>
           <p className="text-sm mt-2 text-white/80 font-bold">
             Capturing moments. Sharing memories.
           </p>

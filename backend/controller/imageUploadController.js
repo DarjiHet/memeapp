@@ -6,7 +6,6 @@ exports.uploadImage = async (req, res) => {
     const user = req.user.id;
     const { name } = req.body;
     const { file } = req.body;
-    console.log(name, file, "hi from console")
     if (!name) {
       return res.status(400).json({
         message: "name is required",

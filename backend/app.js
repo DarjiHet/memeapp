@@ -12,7 +12,8 @@ const app = express()
 
 
 app.use(cors({
-  origin: 'http://localhost:5000', // allow frontend
+  // origin: 'http://localhost:5000', // allow frontend
+  origin: 'https://pixee.netlify.app/',
   credentials: true,               // allow cookies/sessions
 }));
 
@@ -22,7 +23,7 @@ dbConnect();
 app.use(express.urlencoded({ extended:true }))
 app.use(express.json())
 app.use(cookieParser())
-// app.use(limiter)
+app.use(limiter)
 
 // the user
 app.use("/api/v1",userRoute)
