@@ -18,6 +18,8 @@ app.use(cors({
 }));
 
 
+app.set("trust proxy", 1);
+
 // db connection
 dbConnect();
 app.use(express.urlencoded({ extended:true }))
