@@ -8,8 +8,8 @@ const Footer = () => {
       <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Logo / Brand */}
         <div>
-          <h1 className="text-2xl font-bold text-[#ffafcc]">SnapFlow</h1>
-          <p className="text-sm mt-2 text-white/80">
+          <img src="/logo.png" alt="logo" className="w-30 h-15 object-cover rounded-4xl"/>
+          <p className="text-sm mt-2 text-white/80 font-bold">
             Capturing moments. Sharing memories.
           </p>
         </div>
@@ -35,7 +35,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="mt-6 border-t border-white/30 text-center text-sm pt-4 text-white/70">
+      <div className="mt-6 border-t-2 border-white text-center text-sm pt-4 text-white font-bold">
         © {new Date().getFullYear()} SnapFlow. All rights reserved.
       </div>
     </footer>

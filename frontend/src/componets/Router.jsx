@@ -9,6 +9,7 @@ import Images from './Images';
 import Profile from './Profile';
 import AdminDas from './AdminDas';
 import ImageDetail from './ImageDetail';
+import AdminImageList from './AdminImageList';
 
 const appRouter = createBrowserRouter([
   {
@@ -42,6 +43,10 @@ const appRouter = createBrowserRouter([
       {
         path: '/admindas',
         element: <AdminDas />,
+      },
+      {
+        path: '/admin/images',
+        element: <AdminImageList />,
       },
     ],
   },

@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import userReducer from './userSlice';
 import imageReducer from './imageSlice';
 import userImageReducer from './userImagesSlice';
+import adminReducer from '../utils/adminSlice'
 
 const appStore = configureStore(
     {
@@ -9,6 +10,7 @@ const appStore = configureStore(
             user: userReducer,
             image: imageReducer,
             userImage: userImageReducer,
+            admin: adminReducer,
         }
     }
 )
