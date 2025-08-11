@@ -1,7 +1,8 @@
 import axios from "axios";
 import { addUser, setUser, removeUser } from "../utils/userSlice";
 
-const baseUrl = "http://localhost:3000/api/v1/";
+// const baseUrl = "http://localhost:3000/api/v1/";
+const baseUrl = "https://memeapp-sq1n.onrender.com/api/v1/";
 
 export const registerUser = (name, email, password, navigate) => {
   return async (dispatch) => {

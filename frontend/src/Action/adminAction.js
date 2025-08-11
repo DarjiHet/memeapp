@@ -2,7 +2,8 @@ import axios from "axios";
 import { loadUsers } from "../utils/adminSlice"
 import { loadImages } from "../utils/imageSlice";
 
-const baseUrl = "http://localhost:3000/api/v1/";
+// const baseUrl = "http://localhost:3000/api/v1/";
+const baseUrl = "https://memeapp-sq1n.onrender.com/api/v1/";
 
 export const loadAdminUsers = () => {
     return async (dispatch) => {

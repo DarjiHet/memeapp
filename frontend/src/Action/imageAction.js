@@ -3,7 +3,8 @@ import { loadImages } from "../utils/imageSlice";
 import { loadUserImages, deleteUserImage } from "../utils/userImagesSlice";
 import { searchImage } from "../utils/imageSlice"; // adjust path as
 
-const baseUrl = "http://localhost:3000/api/v1/";
+// const baseUrl = "http://localhost:3000/api/v1/";
+const baseUrl = "https://memeapp-sq1n.onrender.com/api/v1/";
 
 export const getImages = () => {
   return async (dispatch) => {
