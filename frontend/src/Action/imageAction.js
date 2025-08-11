@@ -50,7 +50,7 @@ export const likeImage = async (id) => {
 
 export const getUserImages = () => async (dispatch) => {
   try {
-    const response = await axios.get("http://localhost:3000/api/v1/getimages", {
+    const response = await axios.get(`${baseUrl}getimages`, {
       withCredentials: true,
     });
 
