@@ -13,6 +13,7 @@ exports.funcToken = (id, res) => {
       httpOnly: true, // can't be accessed by JS
       secure: process.env.NODE_ENV === "production", // true in production
       sameSite: "None", // needed for cross-site cookies
+      domain: ".onrender.com", // allows subdomains
       path: "/",
       maxAge: 60 * 60 * 24 * 7 * 1000,
     });
