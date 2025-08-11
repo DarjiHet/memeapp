@@ -61,6 +61,8 @@ const Landing = () => {
         ))}
       </div>
       </section> 
+
+      
     </div>
   );
 };
